@@ -1,5 +1,10 @@
-import {View, Text} from 'react-native';
+import 'react-native-gesture-handler';
+
+import {Text} from 'react-native';
 import React from 'react';
+
+// Navigation
+import {NavigationContainer} from '@react-navigation/native';
 
 // React native paper
 import {PaperProvider} from 'react-native-paper';
@@ -12,9 +17,9 @@ export default function App() {
         // eslint-disable-next-line react/no-unstable-nested-components
         icon: props => <Ionicons {...props} />,
       }}>
-      <View>
+      <NavigationContainer>
         <Text>App</Text>
-      </View>
+      </NavigationContainer>
     </PaperProvider>
   );
 }
