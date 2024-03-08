@@ -2,7 +2,8 @@ import {View, Text, FlatList} from 'react-native';
 import React from 'react';
 import {globalStyles} from '../../themes/theme';
 import {Button} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
+import {type NavigationProp, useNavigation} from '@react-navigation/native';
+import type {RootStackParams} from '../../routes/StackNavigation';
 
 const products = [
   {id: 1, name: 'Product 1'},
@@ -18,7 +19,7 @@ const products = [
 ];
 
 export default function ProductsScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParams>>();
 
   return (
     <View>
@@ -29,7 +30,9 @@ export default function ProductsScreen() {
         renderItem={({item}) => (
           <Button
             style={globalStyles.styleButton}
-            onPress={() => navigation.navigate('Product' as never)}
+            onPress={() =>
+              navigation.navigate('Product', {id: item.id, name: item.name})
+            }
             mode="outlined">
             {item.name}
           </Button>
@@ -40,7 +43,7 @@ export default function ProductsScreen() {
         style={globalStyles.styleButton}
         icon="settings-outline"
         mode="elevated"
-        onPress={() => navigation.navigate('Setting' as never)}>
+        onPress={() => navigation.navigate('Setting')}>
         Settings
       </Button>
     </View>
