@@ -19,14 +19,9 @@ export function DrawerNavegation() {
       drawerContent={props => <DrawerContent {...props} />}
       screenOptions={{
         drawerType: dimension.width > 700 ? 'permanent' : 'slide',
+        headerShown: false,
       }}>
-      <Drawer.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="StackNavegation"
-        component={StackNavigaton}
-      />
+      <Drawer.Screen name="StackNavegation" component={StackNavigaton} />
       <Drawer.Screen name="Profile" component={ProfileScreen} />
     </Drawer.Navigator>
   );

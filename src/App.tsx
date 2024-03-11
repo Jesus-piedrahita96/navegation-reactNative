@@ -12,6 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // File
 // import StackNavigaton from './project/routes/StackNavigation';
 import {DrawerNavegation} from './project/routes/DrawerNavegation';
+// import {BottomTapNavegation} from './project/routes/BottomTapNavegation';
 // import {Text} from 'react-native';
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
       <NavigationContainer>
         {/* <StackNavigaton /> */}
         <DrawerNavegation />
+        {/* <BottomTapNavegation /> */}
       </NavigationContainer>
     </PaperProvider>
   );
