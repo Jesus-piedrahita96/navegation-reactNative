@@ -10,7 +10,9 @@ import {PaperProvider} from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // File
-import StackNavigaton from './project/routes/StackNavigation';
+// import StackNavigaton from './project/routes/StackNavigation';
+import {DrawerNavegation} from './project/routes/DrawerNavegation';
+// import {Text} from 'react-native';
 
 export default function App() {
   return (
@@ -20,7 +22,8 @@ export default function App() {
         icon: props => <Ionicons {...props} />,
       }}>
       <NavigationContainer>
-        <StackNavigaton />
+        {/* <StackNavigaton /> */}
+        <DrawerNavegation />
       </NavigationContainer>
     </PaperProvider>
   );

@@ -3,7 +3,11 @@ import {View, Text} from 'react-native';
 import React from 'react';
 
 // React native
-import {type NavigationProp, useNavigation} from '@react-navigation/native';
+import {
+  type NavigationProp,
+  useNavigation,
+  DrawerActions,
+} from '@react-navigation/native';
 
 // Theme
 import {globalStyles} from '../../themes/theme';
@@ -14,6 +18,19 @@ import {type RootStackParams} from '../../routes/StackNavigation';
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParams>>();
+
+  React.useEffect(() => {
+    navigation.setOptions({
+      // eslint-disable-next-line react/no-unstable-nested-components
+      headerLeft: () => (
+        <Button
+          icon="menu-outline"
+          children={undefined}
+          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}
+        />
+      ),
+    });
+  });
 
   return (
     <View style={globalStyles.container}>
